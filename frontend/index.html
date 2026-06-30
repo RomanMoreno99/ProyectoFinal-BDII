@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛒 Tienda Online - Sistema de Gestión</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🏪</span>
+                <span class="logo-text">TiendaOnline</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active" data-page="inicio">Inicio</a></li>
+                <li><a href="#" class="nav-link" data-page="productos">Productos</a></li>
+                <li><a href="#" class="nav-link" data-page="carrito">🛍️ Carrito <span class="cart-count">0</span></a></li>
+                <li><a href="#" class="nav-link" data-page="pedidos">Pedidos</a></li>
+                <li><a href="#" class="nav-link" data-page="clientes">Clientes</a></li>
+                <li><a href="#" class="nav-link" data-page="reportes">📊 Reportes</a></li>
+            </ul>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Sección Inicio -->
+        <section id="inicio" class="page active">
+            <div class="hero">
+                <h1>Bienvenido a tu Tienda Online</h1>
+                <p>Gestiona productos, pedidos y clientes de forma fácil y eficiente</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" data-page="productos">Ver Productos</button>
+                    <button class="btn btn-secondary" data-page="reportes">Ver Reportes</button>
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-card">
+                    <span class="stat-icon">📦</span>
+                    <h3>Productos</h3>
+                    <p class="stat-number" id="stat-products">0</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">👥</span>
+                    <h3>Clientes</h3>
+                    <p class="stat-number" id="stat-clients">0</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">🛒</span>
+                    <h3>Pedidos</h3>
+                    <p class="stat-number" id="stat-orders">0</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">💰</span>
+                    <h3>Ingresos Totales</h3>
+                    <p class="stat-number" id="stat-revenue">$0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Productos -->
+        <section id="productos" class="page">
+            <div class="section-header">
+                <h2>Catálogo de Productos</h2>
+                <button class="btn btn-primary" id="btn-new-product">+ Nuevo Producto</button>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="search-products" placeholder="🔍 Buscar productos...">
+                <select id="filter-category">
+                    <option value="">Todas las categorías</option>
+                </select>
+            </div>
+
+            <div id="products-grid" class="products-grid">
+                <!-- Los productos se cargan aquí -->
+            </div>
+        </section>
+
+        <!-- Sección Carrito -->
+        <section id="carrito" class="page">
+            <div class="section-header">
+                <h2>Carrito de Compras</h2>
+            </div>
+
+            <div class="cart-container">
+                <div id="cart-items" class="cart-items">
+                    <!-- Items del carrito -->
+                </div>
+                <div class="cart-summary">
+                    <h3>Resumen</h3>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Envío:</span>
+                        <span id="shipping">$0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                    <button class="btn btn-primary btn-block" id="btn-checkout">Proceder al Pago</button>
+                    <button class="btn btn-secondary btn-block" id="btn-continue-shopping">Continuar Comprando</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Pedidos -->
+        <section id="pedidos" class="page">
+            <div class="section-header">
+                <h2>Mis Pedidos</h2>
+            </div>
+
+            <div class="orders-table-container">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>ID Pedido</th>
+                            <th>Cliente</th>
+                            <th>Fecha</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-body">
+                        <!-- Pedidos se cargan aquí -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Sección Clientes -->
+        <section id="clientes" class="page">
+            <div class="section-header">
+                <h2>Gestión de Clientes</h2>
+                <button class="btn btn-primary" id="btn-new-client">+ Nuevo Cliente</button>
+            </div>
+
+            <div class="clients-table-container">
+                <table class="clients-table">
+                    <thead>
+                        <tr>
+                            <th>ID Cliente</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Dirección</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="clients-body">
+                        <!-- Clientes se cargan aquí -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Sección Reportes -->
+        <section id="reportes" class="page">
+            <div class="section-header">
+                <h2>📊 Reportes de Ventas</h2>
+            </div>
+
+            <div class="reports-container">
+                <div class="report-card">
+                    <h3>Ventas por Producto</h3>
+                    <div id="report-products" class="report-content">
+                        <!-- Reporte de productos -->
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <h3>Ventas por Categoría</h3>
+                    <div id="report-categories" class="report-content">
+                        <!-- Reporte de categorías -->
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <h3>Ventas por Mes</h3>
+                    <div id="report-months" class="report-content">
+                        <!-- Reporte de meses -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para Nuevo Producto -->
+    <div id="modal-product" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Nuevo Producto</h2>
+            <form id="form-product">
+                <input type="text" placeholder="ID Producto" id="product-id" required>
+                <input type="text" placeholder="Nombre" id="product-name" required>
+                <textarea placeholder="Descripción" id="product-description"></textarea>
+                <input type="number" placeholder="Precio" id="product-price" step="0.01" required>
+                <input type="number" placeholder="Stock" id="product-stock" required>
+                <input type="text" placeholder="Categoría" id="product-category" required>
+                <button type="submit" class="btn btn-primary">Guardar Producto</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Nuevo Cliente -->
+    <div id="modal-client" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Nuevo Cliente</h2>
+            <form id="form-client">
+                <input type="text" placeholder="ID Cliente" id="client-id" required>
+                <input type="text" placeholder="Nombre" id="client-name" required>
+                <input type="email" placeholder="Email" id="client-email" required>
+                <input type="tel" placeholder="Teléfono" id="client-phone" required>
+                <input type="text" placeholder="Dirección" id="client-address" required>
+                <button type="submit" class="btn btn-primary">Guardar Cliente</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Checkout -->
+    <div id="modal-checkout" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Completar Compra</h2>
+            <form id="form-checkout">
+                <h3>Selecciona o crea un cliente:</h3>
+                <select id="checkout-client" required>
+                    <option value="">-- Selecciona un cliente --</option>
+                </select>
+                <button type="button" class="btn btn-secondary" id="btn-new-checkout-client">+ Nuevo Cliente</button>
+                <hr>
+                <h3>Resumen:</h3>
+                <p>Total a pagar: <strong id="checkout-total">$0.00</strong></p>
+                <button type="submit" class="btn btn-primary">Confirmar Compra</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Nuevo Cliente en Checkout -->
+    <div id="modal-checkout-client" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Nuevo Cliente</h2>
+            <form id="form-checkout-client">
+                <input type="text" placeholder="ID Cliente" id="checkout-client-id" required>
+                <input type="text" placeholder="Nombre" id="checkout-client-name" required>
+                <input type="email" placeholder="Email" id="checkout-client-email" required>
+                <input type="tel" placeholder="Teléfono" id="checkout-client-phone" required>
+                <input type="text" placeholder="Dirección" id="checkout-client-address" required>
+                <button type="submit" class="btn btn-primary">Guardar y Continuar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notificación de Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
