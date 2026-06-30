@@ -4,9 +4,20 @@ const Pedido = require('../models/pedido');
 exports.create = async (req, res, next) => {
   try {
     const pedido = req.body;
+    
+    // Validación básica
+    if (!pedido.cliente_id) {
+      return res.status(400).json({ error: 'cliente_id es requerido' });
+    }
+    if (!Array.isArray(pedido.productos) || pedido.productos.length === 0) {
+      return res.status(400).json({ error: 'productos es requerido y debe ser un array' });
+    }
+    
     const created = await crearPedido(pedido);
     res.status(201).json(created);
-  } catch (err) { next(err); }
+  } catch (err) { 
+    next(err); 
+  }
 };
 
 exports.list = async (req, res, next) => {
