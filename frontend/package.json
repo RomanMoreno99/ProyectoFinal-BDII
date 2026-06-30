@@ -1,0 +1,13 @@
+{
+  "name": "tienda-frontend",
+  "version": "1.0.0",
+  "description": "Frontend para sistema de tienda online",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -p 8080 -c-1",
+    "dev": "http-server -p 8080 -c-1 --cors"
+  },
+  "keywords": ["tienda", "e-commerce"],
+  "author": "",
+  "license": "ISC"
+}
